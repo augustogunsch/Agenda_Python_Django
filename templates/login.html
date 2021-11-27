@@ -13,23 +13,12 @@
     </head>
 
     <body>
-
-        <div id='check'>
-            <img src='{% static "img/check.jpg" %}'>
-            <img src='{% static "img/check.jpg" %}'>
-            <img src='{% static "img/check.jpg" %}'>
-        </div>
-
-
-
-
-
         <div id="formulario">
            
             
                 
                 <form action="submit" method="POST">{% csrf_token %}
-                    <h1 id='titulo'>Login</h1>
+		    <img src='{% static "img/doit.png" %}'>
                     <div align = 'center'> 
                             
                         <label>Usuário</label>
@@ -44,13 +33,13 @@
                      </div>
                
                 </form>
-
-         </div>
         {% for message in messages %}
-            <div align='center'>
+            <div id="messages" align='center'>
                 <strong>ERRO : </strong>{{message}}
             </div>
         {% endfor %}
+
+         </div>
 
     </body>  
 </html>
