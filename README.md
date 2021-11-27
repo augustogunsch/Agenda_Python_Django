@@ -23,7 +23,6 @@ $ python manage.py createsuperuser
 Rode o servidor de desenvolvimento:
 ```
 $ python manage.py runserver
-
 ```
 Agora é só entrar pelo navegador em `http://localhost:8000`!
 	
