@@ -70,6 +70,7 @@ def submit_evento(request):
         user = request.user  # recebe o usuário
         local = request.POST.get('local')
         id_evento = request.POST.get('id_evento')
+        print(descricao)
         if id_evento:  # ATUALIZA
             Evento.objects.filter(id=id_evento).update(titulo=titulo,
                                                        data_evento=data_evento,

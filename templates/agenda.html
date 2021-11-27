@@ -1,56 +1,44 @@
 <!DOCTYPE html>
-
 <html>
 	{% load static %}
 	<head>
-
 		<title>Agendamento</title>
 		<meta charset="utf-8">
 		 
 		<link rel="stylesheet" type="text/css" href="{% static 'css/agendamento.css' %}">
 	</head>
-
-
 	<body>
-			<h2 id = 'ag'>Agendamentos</h2>
-
-						
-						
-
-			<ul  id='IconAgen' style="font-size: 18px">
-
-				{% for evento in eventos %}
-					
-					<div style={% if evento.evento_atrasado %} 'color: red'	 {% endif %}>
-
-						<li>{{evento.titulo}} - {{evento.getDataEvento}} 
-
-								(<a href="evento/?id={{evento.id}}">Editar</a>
-								/<a href="evento/delete/{{evento.id}}">Excluir</a>)</li>
-
-						</div>
-
-
-									
-				{% endfor %} 
-
-					<div id='fundo'></div>
-
-					<div id="box">
-						
-						<a id='novoCad' href="evento/"><button type="button">Novo Evento</button></a>
-
-						<a  id='logout' href='/logout/'><button type="button">Logout</button></a>
-					</div>
-						
-			</ul>
-
-					
-
-
-					
-
-						<!--<a  id='logout' href='/logout/'><button type="button">Logout</button></a>-->
-				
-		</body>
+		<h2 id = "ag">Agendamentos</h2>
+		<img src='{% static "img/doit.png" %}'>
+		<main>
+			{% if eventos %}
+				<table id="IconAgen" style="font-size: 18px">
+					<tr>
+						<th>Título</th>
+						<th>Data</th>
+						<th>Descrição</th>
+						<th>Ações</th>
+					</tr>
+					{% for evento in eventos %}
+						<tr>
+							<td>{{evento.titulo}}</td>
+							<td>{{evento.getDataEvento}}</td>
+							{% if evento.descricao %} <td>{{evento.descricao}}</td>
+							{% else %} <td>N/A</td> {% endif %}
+							<td id="acoes"><a id="editar" href="evento/?id={{evento.id}}">Editar</a>
+							<a id="excluir" href="evento/delete/{{evento.id}}">Excluir</a></td>
+						</tr>
+					{% endfor %} 
+				</table>
+			{% else %}
+				<span>
+				Nenhum evento agendado
+				</span>
+			{% endif %}
+		</main>
+		<div id="box">
+			<a id="novoCad" href="evento/">Novo Evento</a>
+			<a id="logout" href="/logout/">Logout</a>
+		</div>
+	</body>
 </html>
