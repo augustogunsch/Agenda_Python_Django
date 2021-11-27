@@ -14,13 +14,9 @@ def lista_eventos(request):
     user = request.user
     data_atual = datetime.now() - timedelta(hours=1)
 
-    for evento in Evento.objects.all():
-        print(evento)
-
     evento = Evento.objects.filter(user=user, data_evento__gt=data_atual)
 
     dados = {'eventos': evento}
-    print(dados)
 
     return render(request, 'agenda.html', dados)
 
@@ -70,7 +66,6 @@ def submit_evento(request):
         user = request.user  # recebe o usuário
         local = request.POST.get('local')
         id_evento = request.POST.get('id_evento')
-        print(descricao)
         if id_evento:  # ATUALIZA
             Evento.objects.filter(id=id_evento).update(titulo=titulo,
                                                        data_evento=data_evento,
