@@ -13,10 +13,11 @@ table {
 	padding: 0;
 }
 
-#IconAgen span {
+span {
 	display: inline-box;
 	position: relative;
-	top: 3em;
+	top: 2em;
+	left: 2em;
 }
 
 tr {
