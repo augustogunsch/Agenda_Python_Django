@@ -15,20 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core.views import lista_eventos, login_user,submit_login, logout_user,evento_user, submit_evento,delete_evento,json_lista_evento
-from django.views.generic import RedirectView 
+from core.views import lista_eventos, login_user, submit_login, logout_user, \
+                   evento_user, submit_evento, delete_evento, json_lista_evento
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('agenda/',lista_eventos),
-    path('agenda/evento/<int:id_usuario>',json_lista_evento),
-    path('',RedirectView.as_view(url='/agenda/')),
-    path('login/',login_user),
-    path('login/submit',submit_login),
-    path('logout/',logout_user),
-    path('agenda/evento/',evento_user),
-    path('agenda/evento/submit',submit_evento),
+    path('agenda/', lista_eventos),
+    path('agenda/evento/<int:id_usuario>', json_lista_evento),
+    path('', RedirectView.as_view(url='/agenda/')),
+    path('login/', login_user),
+    path('login/submit', submit_login),
+    path('logout/', logout_user),
+    path('agenda/evento/', evento_user),
+    path('agenda/evento/submit', submit_evento),
     path('agenda/evento/delete/<int:id_evento>', delete_evento)
 
-] 
-
+]
